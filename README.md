@@ -13,13 +13,13 @@ Site: https://cincoregioes-star.github.io/minha-graduacao/
 ## Supabase: coleta de uso conectada (28/10/2026)
 Projeto Supabase exclusivo: `minha-graduacao` (`xxfgaeiucwhvlqodzqql`), em São Paulo.
 
-- O `index.html` está configurado com URL HTTPS e chave pública publishable.
+- O `index.html` carrega `mg-supabase-config.js`, que contém somente a URL HTTPS e a chave pública publishable.
 - Banco `public.mg_usage_events`, com RLS ativo.
 - O visitante precisa clicar **Permitir métricas**; antes disso nada é enviado.
 - Eventos: `page_view`, `course_open`, `lesson_toggle`, `quiz_complete` e `assessment_complete`.
 - Nenhum nome, senha, foto, resposta de prova nem nota é transmitido. Os IDs de sessão e navegador são pseudônimos.
 - Usuários anônimos podem **somente inserir** eventos com campos limitados; não podem consultar, modificar nem apagar os registros.
-- O teste de inserção com a role `anon` passou; validação HTTP ao vivo depende de visitas com consentimento no site.
+- Permissões conferidas: RLS ativo, `anon` com inserção e sem leitura. O teste HTTP ponta a ponta no site publicado ainda não foi observado; o registro será confirmado quando um visitante autorizar métricas.
 
 ### Consultar os acessos
 Abra https://supabase.com/dashboard/project/xxfgaeiucwhvlqodzqql/editor e use o SQL Editor com as consultas em `supabase/relatorios.sql`. Os relatórios contam apenas acessos com consentimento e não representam pessoas identificadas.
