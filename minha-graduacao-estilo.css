@@ -1,0 +1,38 @@
+/* Minha Graduação — melhorias visuais e acessíveis */
+:root{--mg-grad:linear-gradient(135deg,#09283b,#08745e);--mg-focus:#e0b653}
+.courses{overflow:visible}
+.courses .course{position:relative;isolation:isolate;transform-origin:center center;min-width:0;transition:transform .24s cubic-bezier(.2,.75,.25,1),box-shadow .24s ease,border-color .24s ease,filter .24s ease;box-shadow:0 7px 16px #102f4310;border:1px solid #bad8d3;background:linear-gradient(135deg,#e7faf2,#f9fefc)}
+.courses .course:nth-child(6n + 1){background:linear-gradient(135deg,#d9f4e8,#f6fef9);border-color:#9bd7bb}
+.courses .course:nth-child(6n + 2){background:linear-gradient(135deg,#dfecff,#f8fbff);border-color:#a9c8ef}
+.courses .course:nth-child(6n + 3){background:linear-gradient(135deg,#fff0d2,#fffaf0);border-color:#edc982}
+.courses .course:nth-child(6n + 4){background:linear-gradient(135deg,#e7e5fc,#f9f8ff);border-color:#c3b9ea}
+.courses .course:nth-child(6n + 5){background:linear-gradient(135deg,#daf5f1,#f7fffe);border-color:#9ddbd2}
+.courses .course:nth-child(6n + 6){background:linear-gradient(135deg,#ebf3d6,#fbfdf6);border-color:#c2d79d}
+.courses .course:hover,.courses .course:focus-within{transform:translateY(-6px) scale(1.035);box-shadow:0 19px 34px #09283a30;border-color:#0b7b68;z-index:4;filter:saturate(1.06)}
+.courses .course h3{color:#0b2b42;font-weight:800}
+.courses .course p{color:#355369}
+.courses .course .tag{color:#075948}
+.courses .course .btn{background:#087961}
+.courses .course .btn:hover,.courses .course .btn:focus-visible{background:#064e41}
+.courses .course.course-gratis{border:2px solid #0b8068;background:linear-gradient(135deg,#dcf7df,#f9fff2);box-shadow:0 7px 21px #02725124}
+.mg-card-label{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;padding:5px 9px;margin:-5px 0 9px;border-radius:100px;background:#e8ecf3;color:#34516a;font-size:10px;letter-spacing:.04em;font-weight:800;text-transform:uppercase}
+.mg-card-label.mg-card-free{background:#08775e;color:#fff}
+.semesters .semester{position:relative;transition:transform .23s ease,box-shadow .23s ease,background .23s ease;background:linear-gradient(145deg,#eff9f5,#fff);border-color:#c4dfd6}
+.semesters .semester:nth-child(even){background:linear-gradient(145deg,#e7f1ff,#fff)}
+.semesters .semester:hover,.semesters .semester:focus-visible{transform:translateY(-5px) scale(1.025);box-shadow:0 14px 28px #09283a22;z-index:2}
+.mg-info{display:flex;align-items:center;gap:14px;margin:10px 0 19px;padding:16px 19px;border-radius:16px;border:1px solid #a8caba;background:linear-gradient(110deg,#e6f7ef,#eef6ff);box-shadow:0 6px 16px #0725380d}
+.mg-info-icon{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:13px;color:#fff;background:#0a6857;font-size:23px}
+.mg-info-text{flex:1;min-width:0}
+.mg-info-text strong{display:block;font-size:16px;color:#0a3040}
+.mg-info-text span{display:block;font-size:12px;color:#476278;line-height:1.55;margin-top:4px}
+.mg-info .btn{flex-shrink:0;white-space:nowrap}
+.mg-auth-disclaimer{font-size:12px;line-height:1.5;margin:8px 0;color:#46718c}
+.mg-privacy-box{position:fixed;z-index:100;bottom:18px;right:18px;width:min(470px,calc(100vw - 36px));background:#fff;border:1px solid #bad6d3;border-radius:16px;box-shadow:0 14px 52px #07253842;padding:17px}
+.mg-privacy-box strong{color:#0b334c}
+.mg-privacy-box p{font-size:12px;line-height:1.65;color:#425a69}
+.mg-privacy-actions{display:flex;gap:9px;justify-content:flex-end}
+.mg-privacy-actions button{border:1px solid #a4c7c4;border-radius:9px;background:#f4f7f7;padding:8px 14px;font-weight:700}
+.mg-privacy-actions button.mg-accept{background:#087961;color:#fff;border-color:#087961}
+.mg-privacy-settings{margin-left:8px;border:0;background:none;text-decoration:underline;font-size:11px;color:#d3e8ec}
+@media(max-width:740px){.mg-info{flex-wrap:wrap;align-items:flex-start}.mg-info .btn{width:100%}.courses .course:hover,.courses .course:focus-within{transform:translateY(-3px) scale(1.01)}}
+@media(prefers-reduced-motion:reduce){.courses .course,.semesters .semester{transition:none!important}.courses .course:hover,.courses .course:focus-within,.semesters .semester:hover,.semesters .semester:focus-visible{transform:none!important}}
