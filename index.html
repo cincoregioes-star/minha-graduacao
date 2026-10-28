@@ -908,7 +908,7 @@ renderAuth();
 
 /* Integração opcional de métricas Supabase. Configurar com project_url + PUBLISHABLE KEY,
    após executar o SQL de configuração. Nunca inserir chave secreta/service_role no HTML. */
-const MG_SUPABASE_CONFIG={url:'',publishableKey:''};
+const MG_SUPABASE_CONFIG={url:'https://xxfgaeiucwhvlqodzqql.supabase.co',publishableKey:'sb_publishable_RnvqoTMxkl-gO_eCEV6pxg_K18kpkSO'};
 const MG_METRICS_CONSENT_KEY='mg-metrics-consent-v1',MG_VISITOR_KEY='mg-visitor-id-v1';
 function mgUUID(){if(typeof crypto!=='undefined'&&crypto.randomUUID)return crypto.randomUUID();return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.floor(Math.random()*16);return(c==='x'?r:(r&3|8)).toString(16)})}
 function mgConsent(value){try{localStorage.setItem(MG_METRICS_CONSENT_KEY,value?'yes':'no')}catch(e){}mgRenderConsent();if(value)mgTrack('page_view',{page:document.querySelector('.view.active')?.id||'home'})}
