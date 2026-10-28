@@ -1,0 +1,42 @@
+name: Aplicar correcao V12 - simulados no menu
+on:
+  push:
+    paths:
+      - .github/workflows/aplicar-correcao-v12.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  corrigir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Preservar plataforma e mover acesso de simulados para o menu
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<button type="button" class="mg-top-shortcut" onclick="navigate(\'exam_hub\')" title="Abrir simulados e provas">📝 Simulados e provas</button>'
+          assert "navigate('exam_hub')" in s, 'Seção de simulados indisponível'
+          assert '<section id="exam_hub" class="view">' in s, 'View de simulados ausente'
+          assert '<button onclick="navigate(\'exam_hub\')">📝 &nbsp; Simulados e provas</button>' in s, 'Menu lateral não contém o atalho'
+          assert s.count(old) == 1, f'Esperado um botão no cabeçalho, encontrado {s.count(old)}'
+          s = s.replace(old, '', 1)
+          title = '<title>Minha Graduação | Ciências Contábeis</title>'
+          assert s.count(title) == 1
+          s = s.replace(title, title + '<meta name="mg-versao" content="V12-2026-10-28">', 1)
+          p.write_text(s, encoding='utf-8')
+          print('V12 concluída. Menu preservado. HTML:', p.stat().st_size, 'bytes')
+          PY
+      - name: Publicar alteracao na branch main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "V12: simulados somente no menu lateral"
+          git push origin HEAD:main
